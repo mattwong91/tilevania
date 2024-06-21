@@ -14272,10 +14272,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1520455101809312420, guid: 8ab7b9600b74e445da68e9ca76a71e67, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 2632962209208385891, guid: 8ab7b9600b74e445da68e9ca76a71e67, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.35
@@ -14315,30 +14311,6 @@ PrefabInstance:
     - target: {fileID: 2632962209208385891, guid: 8ab7b9600b74e445da68e9ca76a71e67, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5265000238934156576, guid: 8ab7b9600b74e445da68e9ca76a71e67, type: 3}
-      propertyPath: runSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5265000238934156576, guid: 8ab7b9600b74e445da68e9ca76a71e67, type: 3}
-      propertyPath: jumpSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5735087972367681259, guid: 8ab7b9600b74e445da68e9ca76a71e67, type: 3}
-      propertyPath: m_LinearDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5735087972367681259, guid: 8ab7b9600b74e445da68e9ca76a71e67, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5735087972367681259, guid: 8ab7b9600b74e445da68e9ca76a71e67, type: 3}
-      propertyPath: m_GravityScale
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5735087972367681259, guid: 8ab7b9600b74e445da68e9ca76a71e67, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
