@@ -105,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
       isAlive = false;
       playerAnimator.SetTrigger("Dying");
       rb2D.velocity = deathKick;
+      FindObjectOfType<GameSession>().ProcessPlayerDeath();
     }
   }
 
