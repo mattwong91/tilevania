@@ -13,6 +13,7 @@ public class CoinPickup : MonoBehaviour
   {
     if (other.tag == "Player" && !wasCollected)
     {
+      wasCollected = true;
       AudioSource.PlayClipAtPoint(coinAudio, Camera.main.transform.position);
       FindObjectOfType<GameSession>().IncreaseScore(scoreValue);
       gameObject.SetActive(false);
