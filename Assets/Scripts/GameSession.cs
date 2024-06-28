@@ -9,6 +9,7 @@ public class GameSession : MonoBehaviour
   [SerializeField] int playerLives = 3;
   [SerializeField] TextMeshProUGUI livesText;
   [SerializeField] TextMeshProUGUI scoreText;
+  [SerializeField] float deathDelay = 1.5f;
   int playerScore = 0;
 
 
@@ -35,11 +36,11 @@ public class GameSession : MonoBehaviour
   {
     if (playerLives > 1)
     {
-      TakeLife();
+      Invoke("TakeLife", deathDelay);
     }
     else
     {
-      ResetGameSession();
+      Invoke("ResetGameSession", deathDelay);
     }
   }
 

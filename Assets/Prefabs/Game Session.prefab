@@ -182,6 +182,7 @@ MonoBehaviour:
   playerLives: 3
   livesText: {fileID: 8301388893955054069}
   scoreText: {fileID: 4164825908069824522}
+  deathDelay: 1
 --- !u!1 &4090762050680788253
 GameObject:
   m_ObjectHideFlags: 0
