@@ -156,8 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08cf66bde720b4db9b5e6cbf2c831ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinAudio: {fileID: 8300000, guid: da63ca76812c8442d927fc53f076b3a4, type: 3}
-  volume: 1
+  coinAudio: {fileID: 8300000, guid: bb85ad1650890496eb4b3150b2169710, type: 3}
+  scoreValue: 100
 --- !u!82 &4986255756622639108
 AudioSource:
   m_ObjectHideFlags: 0
