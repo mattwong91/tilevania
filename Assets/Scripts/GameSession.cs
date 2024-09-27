@@ -28,8 +28,18 @@ public class GameSession : MonoBehaviour
 
   void Start()
   {
-    livesText.text = playerLives.ToString();
+    UpdateLives();
+    UpdateScore();
+  }
+
+  void UpdateScore()
+  {
     scoreText.text = playerScore.ToString();
+  }
+
+  void UpdateLives()
+  {
+    livesText.text = playerLives.ToString();
   }
 
   public void ProcessPlayerDeath()
@@ -56,12 +66,12 @@ public class GameSession : MonoBehaviour
     playerLives--;
     int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     SceneManager.LoadScene(currentSceneIndex);
-    livesText.text = playerLives.ToString();
+    UpdateLives();
   }
 
   public void IncreaseScore(int scorePoints)
   {
     playerScore += scorePoints;
-    scoreText.text = playerScore.ToString();
+    UpdateScore();
   }
 }
