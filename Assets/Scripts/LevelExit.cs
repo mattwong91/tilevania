@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class LevelExit : MonoBehaviour
 {
   [SerializeField] float loadDelay = 1f;
+  GameSession currentGameSession;
+
+  void Start()
+  {
+    currentGameSession = FindObjectOfType<GameSession>();
+  }
 
   void OnTriggerEnter2D(Collider2D other)
   {
@@ -23,6 +29,10 @@ public class LevelExit : MonoBehaviour
     }
 
     FindObjectOfType<ScenePersist>().ResetScenePersist();
+    if (nextLevelIndex == 0)
+    {
+      currentGameSession.EndGameSession();
+    }
     SceneManager.LoadScene(nextLevelIndex);
   }
 }

@@ -61,6 +61,12 @@ public class GameSession : MonoBehaviour
     Destroy(gameObject);
   }
 
+  public void EndGameSession()
+  {
+    FindObjectOfType<ScenePersist>().ResetScenePersist();
+    Destroy(gameObject);
+  }
+
   void TakeLife()
   {
     playerLives--;
