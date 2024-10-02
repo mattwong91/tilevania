@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
   Animator playerAnimator;
   CapsuleCollider2D bodyCollider;
   BoxCollider2D feetCollider;
+  Health playerHealth;
   float gravityScaleAtStart;
   bool isAlive = true;
 
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     bodyCollider = GetComponent<CapsuleCollider2D>();
     feetCollider = GetComponent<BoxCollider2D>();
     gravityScaleAtStart = rb2D.gravityScale;
+    playerHealth = GetComponent<Health>();
   }
 
 
@@ -36,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     Run();
     FlipSprite();
     ClimbLadder();
-    Die();
+    ProcessDamage();
   }
 
   void OnMove(InputValue value)
@@ -98,15 +100,24 @@ public class PlayerMovement : MonoBehaviour
     playerAnimator.SetBool("isClimbing", hasVerticalSpeed);
   }
 
-  void Die()
+  void ProcessDamage()
   {
     if (bodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemies", "Hazards")))
     {
-      isAlive = false;
-      playerAnimator.SetTrigger("Dying");
-      rb2D.velocity = deathKick;
-      FindObjectOfType<GameSession>().ProcessPlayerDeath();
+      playerHealth.TakeDamage();
+      if (playerHealth.GetHealth() <= 0)
+      {
+        Die();
+      }
     }
+  }
+
+  void Die()
+  {
+    isAlive = false;
+    playerAnimator.SetTrigger("Dying");
+    rb2D.velocity = deathKick;
+    FindObjectOfType<GameSession>().ProcessPlayerDeath();
   }
 
 }

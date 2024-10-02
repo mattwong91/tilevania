@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2829637352004379300}
   - component: {fileID: 4017275272901549949}
   - component: {fileID: 442520532081083574}
+  - component: {fileID: 2448700286869714575}
   m_Layer: 11
   m_Name: Goo Enemy
   m_TagString: Enemy
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1040896611
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -472117923, guid: 7e02c78fdf50d40af9167068bdf834ec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -230,3 +231,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.052450657, y: 0.7407789}
   m_EdgeRadius: 0
+--- !u!114 &2448700286869714575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8492868658659753885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 155ebf8711129422c9ab524c9d5c147b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 0
+  health: 3
+  hitAudio: {fileID: 8300000, guid: 45f28598bd4794262a327886fc207396, type: 3}
