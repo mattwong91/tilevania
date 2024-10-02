@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-  [SerializeField] bool isPlayer;
+  // NOTE not sure if isPlayer is needed in this case
+  // [SerializeField] bool isPlayer;
   [SerializeField] int health = 4;
 
   [SerializeField] AudioClip hitAudio;
@@ -13,10 +14,7 @@ public class Health : MonoBehaviour
 
   public void TakeDamage()
   {
-    if (isPlayer)
-    {
-      AudioSource.PlayClipAtPoint(hitAudio, Camera.main.transform.position);
-    }
+    AudioSource.PlayClipAtPoint(hitAudio, Camera.main.transform.position);
     health--;
     Debug.Log($"{gameObject.name} has {health} health left");
   }
