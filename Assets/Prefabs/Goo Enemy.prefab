@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 3228417142509739420}
   - component: {fileID: 1894489558933498709}
   - component: {fileID: 2829637352004379300}
-  - component: {fileID: 4017275272901549949}
   - component: {fileID: 442520532081083574}
+  - component: {fileID: 4017275272901549949}
   - component: {fileID: 2448700286869714575}
   m_Layer: 11
   m_Name: Goo Enemy
@@ -173,20 +173,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4017275272901549949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8492868658659753885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d24da1ef5922640a4b2d6fb49a709e3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1.5
-  moveDelay: 0.5
 --- !u!61 &442520532081083574
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -232,6 +218,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.052450657, y: 0.7407789}
   m_EdgeRadius: 0
+--- !u!114 &4017275272901549949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8492868658659753885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24da1ef5922640a4b2d6fb49a709e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1.5
+  moveDelay: 0.5
+  hitDelay: 0.15
 --- !u!114 &2448700286869714575
 MonoBehaviour:
   m_ObjectHideFlags: 0

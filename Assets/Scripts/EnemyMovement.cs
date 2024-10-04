@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
   [SerializeField] float moveSpeed = 2f;
   [SerializeField] float moveDelay = 0.5f;
+  [SerializeField] float hitDelay = 0.5f;
   Rigidbody2D rb2D;
   bool isStopped = false;
 
@@ -22,7 +23,7 @@ public class EnemyMovement : MonoBehaviour
 
   void OnTriggerExit2D(Collider2D other)
   {
-    if (other.gameObject.tag != "Player")
+    if (other.gameObject.tag != "Player" && other.gameObject.tag != "Bullet")
     {
       moveSpeed = -moveSpeed;
       FlipEnemyFacing();
@@ -35,10 +36,11 @@ public class EnemyMovement : MonoBehaviour
     {
       StartCoroutine(PauseMovement(moveDelay));
     }
+    if (other.gameObject.tag == "Bullet")
+    {
+      StartCoroutine(PauseMovement(hitDelay));
+    }
   }
-
-  // TODO Create a method for knockback. Should be triggered when the other collider is a bullet tag.
-  // Knockback should push the enemy back and then call pause movement
 
   IEnumerator PauseMovement(float delay)
   {
