@@ -5,8 +5,9 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
   [SerializeField] float moveSpeed = 2f;
+  [SerializeField] float moveDelay = 0.5f;
   Rigidbody2D rb2D;
-  public bool isHit = false;
+  bool isStopped = false;
 
   void Start()
   {
@@ -15,14 +16,36 @@ public class EnemyMovement : MonoBehaviour
 
   void Update()
   {
-    if (isHit) { return; }
+    if (isStopped) { return; }
     rb2D.velocity = new Vector2(moveSpeed, 0);
   }
 
   void OnTriggerExit2D(Collider2D other)
   {
-    moveSpeed = -moveSpeed;
-    FlipEnemyFacing();
+    if (other.gameObject.tag != "Player")
+    {
+      moveSpeed = -moveSpeed;
+      FlipEnemyFacing();
+    }
+  }
+
+  void OnTriggerEnter2D(Collider2D other)
+  {
+    if (other.gameObject.tag == "Player")
+    {
+      StartCoroutine(PauseMovement(moveDelay));
+    }
+  }
+
+  // TODO Create a method for knockback. Should be triggered when the other collider is a bullet tag.
+  // Knockback should push the enemy back and then call pause movement
+
+  IEnumerator PauseMovement(float delay)
+  {
+    isStopped = true;
+    rb2D.velocity = new Vector2(0f, 0f);
+    yield return new WaitForSeconds(delay);
+    isStopped = false;
   }
 
   void FlipEnemyFacing()
