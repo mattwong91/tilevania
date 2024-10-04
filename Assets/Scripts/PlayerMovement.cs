@@ -24,9 +24,6 @@ public class PlayerMovement : MonoBehaviour
   Health playerHealth;
   float gravityScaleAtStart;
   bool isAlive = true;
-  bool isHit = false;
-  //NOTE Maybe an isHit that gets triggered on touching layer, and then apply knockback has an if statement.
-  // if the footCollider hits the ground, change isHit to false again?
 
   void Start()
   {
