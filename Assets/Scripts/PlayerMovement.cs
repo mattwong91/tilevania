@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -9,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
   [SerializeField] float jumpSpeed = 5f;
   [SerializeField] float climbSpeed = 3f;
   [SerializeField] Vector2 deathKick = new Vector2(5f, 10f);
+  [SerializeField] float horizontalKnockback = 20f;
+  [SerializeField] float verticalKnockback = 20f;
   [SerializeField] GameObject bullet;
   [SerializeField] Transform weapon;
 
@@ -20,6 +24,9 @@ public class PlayerMovement : MonoBehaviour
   Health playerHealth;
   float gravityScaleAtStart;
   bool isAlive = true;
+  bool isHit = false;
+  //NOTE Maybe an isHit that gets triggered on touching layer, and then apply knockback has an if statement.
+  // if the footCollider hits the ground, change isHit to false again?
 
   void Start()
   {
@@ -38,6 +45,11 @@ public class PlayerMovement : MonoBehaviour
     Run();
     FlipSprite();
     ClimbLadder();
+    Die();
+  }
+
+  void FixedUpdate()
+  {
     ProcessDamage();
   }
 
@@ -102,22 +114,39 @@ public class PlayerMovement : MonoBehaviour
 
   void ProcessDamage()
   {
-    if (bodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemies", "Hazards")))
+    if (bodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
     {
+      ApplyKnockback(horizontalKnockback, 0);
       playerHealth.TakeDamage();
-      if (playerHealth.GetHealth() <= 0)
-      {
-        Die();
-      }
+    }
+    if (bodyCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")))
+    {
+      ApplyKnockback(0, verticalKnockback);
+      playerHealth.TakeDamage();
+    }
+  }
+
+  void ApplyKnockback(float x, float y)
+  {
+    if (Mathf.Sign(transform.localScale.x) > 0)
+    {
+      rb2D.velocity = new Vector2(-Math.Abs(x), y);
+    }
+    else
+    {
+      rb2D.velocity = new Vector2(Math.Abs(x), y);
     }
   }
 
   void Die()
   {
-    isAlive = false;
-    playerAnimator.SetTrigger("Dying");
-    rb2D.velocity = deathKick;
-    FindObjectOfType<GameSession>().ProcessPlayerDeath();
+    if (playerHealth.GetHealth() <= 0)
+    {
+      isAlive = false;
+      playerAnimator.SetTrigger("Dying");
+      ApplyKnockback(deathKick.x, deathKick.y);
+      FindObjectOfType<GameSession>().ProcessPlayerDeath();
+    }
   }
 
 }

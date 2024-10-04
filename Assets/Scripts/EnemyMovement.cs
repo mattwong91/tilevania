@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour
 {
   [SerializeField] float moveSpeed = 2f;
   Rigidbody2D rb2D;
+  public bool isHit = false;
 
   void Start()
   {
@@ -14,6 +15,7 @@ public class EnemyMovement : MonoBehaviour
 
   void Update()
   {
+    if (isHit) { return; }
     rb2D.velocity = new Vector2(moveSpeed, 0);
   }
 

@@ -244,4 +244,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  knockback: {x: 1, y: 5}
   hitAudio: {fileID: 8300000, guid: 45f28598bd4794262a327886fc207396, type: 3}
