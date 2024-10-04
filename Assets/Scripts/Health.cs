@@ -8,14 +8,8 @@ public class Health : MonoBehaviour
   [SerializeField] bool isPlayer;
   [SerializeField] int health = 4;
   [SerializeField] AudioClip hitAudio;
-  Rigidbody2D rb2D;
 
   public int GetHealth() { return health; }
-
-  void Start()
-  {
-    rb2D = GetComponent<Rigidbody2D>();
-  }
 
   public void TakeDamage()
   {
