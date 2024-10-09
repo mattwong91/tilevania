@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
   [SerializeField] float verticalKnockback = 20f;
   [SerializeField] GameObject bullet;
   [SerializeField] Transform weapon;
+  [SerializeField] AudioClip hitAudio;
 
   Vector2 moveInput;
   Rigidbody2D rb2D;
@@ -114,11 +115,13 @@ public class PlayerMovement : MonoBehaviour
     if (bodyCollider.IsTouchingLayers(LayerMask.GetMask("Enemies")))
     {
       ApplyKnockback(horizontalKnockback, 0);
+      AudioSource.PlayClipAtPoint(hitAudio, Camera.main.transform.position);
       playerHealth.TakeDamage();
     }
     if (bodyCollider.IsTouchingLayers(LayerMask.GetMask("Hazards")))
     {
       ApplyKnockback(0, verticalKnockback);
+      AudioSource.PlayClipAtPoint(hitAudio, Camera.main.transform.position);
       playerHealth.TakeDamage();
     }
   }
