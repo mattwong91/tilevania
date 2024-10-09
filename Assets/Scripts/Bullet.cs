@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
   [SerializeField] float bulletSpeed = 15f;
+  [SerializeField] AudioClip hitAudio;
   Rigidbody2D rb2D;
   PlayerMovement player;
   float xSpeed;
@@ -26,6 +27,7 @@ public class Bullet : MonoBehaviour
     if (other.tag == "Enemy")
     {
       Health enemyHealth = other.GetComponent<Health>();
+      AudioSource.PlayClipAtPoint(hitAudio, Camera.main.transform.position);
       enemyHealth.TakeDamage();
       if (enemyHealth.GetHealth() <= 0)
       {

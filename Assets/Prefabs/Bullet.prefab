@@ -162,3 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 15
+  hitAudio: {fileID: 8300000, guid: 45f28598bd4794262a327886fc207396, type: 3}
