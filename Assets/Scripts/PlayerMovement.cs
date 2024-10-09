@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     bodyCollider = GetComponent<CapsuleCollider2D>();
     feetCollider = GetComponent<BoxCollider2D>();
     gravityScaleAtStart = rb2D.gravityScale;
-    playerHealth = GetComponent<Health>();
+    playerHealth = GetComponentInParent<Health>();
   }
 
 

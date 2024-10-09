@@ -9,6 +9,7 @@ public class Health : MonoBehaviour
   [SerializeField] int maxHealth = 4;
 
   int health;
+  HealthBar healthBar;
 
   public int GetHealth() { return health; }
   public int GetMaxHealth() { return maxHealth; }
@@ -16,13 +17,14 @@ public class Health : MonoBehaviour
   void Awake()
   {
     health = maxHealth;
+    healthBar = GetComponentInChildren<HealthBar>();
   }
 
   public void TakeDamage()
   {
     health--;
     if (health < 0) { health = 0; }
-    GetComponentInChildren<HealthBar>().UpdateHealthBar();
+    healthBar.UpdateHealthBar(health, maxHealth);
     Debug.Log($"{gameObject.name} has {health} health left");
   }
 
@@ -30,7 +32,7 @@ public class Health : MonoBehaviour
   {
     health -= damage;
     if (health < 0) { health = 0; }
-    GetComponentInChildren<HealthBar>().UpdateHealthBar();
+    healthBar.UpdateHealthBar(health, maxHealth);
     Debug.Log($"{gameObject.name} has {health} health left");
   }
 
