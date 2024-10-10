@@ -16,10 +16,21 @@ public class HealthBar : MonoBehaviour
 
   void Update()
   {
-    transform.rotation = Camera.main.transform.rotation;
-    transform.position = target.position + offset;
+    PositionHealthBar();
   }
 
+  void PositionHealthBar()
+  {
+    transform.rotation = Camera.main.transform.rotation;
+    if (target == null)
+    {
+      Destroy(gameObject);
+    }
+    else
+    {
+      transform.position = target.position + offset;
+    }
+  }
   public void UpdateHealthBar(float currentHealth, float maxHealth)
   {
     healthBar.value = currentHealth / maxHealth;
