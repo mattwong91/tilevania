@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
   {
     if (other.tag == "Enemy")
     {
-      Health enemyHealth = other.GetComponent<Health>();
+      Health enemyHealth = other.GetComponentInParent<Health>();
       AudioSource.PlayClipAtPoint(hitAudio, Camera.main.transform.position);
       enemyHealth.TakeDamage();
       if (enemyHealth.GetHealth() <= 0)
