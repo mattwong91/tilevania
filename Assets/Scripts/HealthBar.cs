@@ -7,11 +7,16 @@ public class HealthBar : MonoBehaviour
 {
   [SerializeField] Transform target;
   [SerializeField] Vector3 offset;
+  [Tooltip("Time in seconds to wait before hiding the health bar")]
+  [SerializeField] float showHideDelay = 1f;
   Slider healthBar;
+  Canvas canvas;
 
   void Start()
   {
     healthBar = GetComponent<Slider>();
+    canvas = GetComponentInParent<Canvas>();
+    canvas.enabled = false;
   }
 
   void Update()
@@ -34,5 +39,13 @@ public class HealthBar : MonoBehaviour
   public void UpdateHealthBar(float currentHealth, float maxHealth)
   {
     healthBar.value = currentHealth / maxHealth;
+    StartCoroutine(DisplayHealthBar());
+  }
+
+  IEnumerator DisplayHealthBar()
+  {
+    canvas.enabled = true;
+    yield return new WaitForSeconds(showHideDelay);
+    canvas.enabled = false;
   }
 }
