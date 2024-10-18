@@ -44,6 +44,7 @@ public class HealthBar : MonoBehaviour
 
   IEnumerator DisplayHealthBar()
   {
+    if (canvas.enabled) { yield break; }
     canvas.enabled = true;
     yield return new WaitForSeconds(showHideDelay);
     canvas.enabled = false;
