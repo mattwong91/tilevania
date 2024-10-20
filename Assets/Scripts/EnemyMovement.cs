@@ -5,7 +5,9 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
   [SerializeField] float moveSpeed = 2f;
+  [Tooltip("Delay upon making contact with player")]
   [SerializeField] float moveDelay = 0.5f;
+  [Tooltip("Delay after being hit with bullet")]
   [SerializeField] float hitDelay = 0.5f;
   Rigidbody2D rb2D;
   bool isStopped = false;
