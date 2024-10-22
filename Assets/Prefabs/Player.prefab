@@ -119,9 +119,9 @@ GameObject:
   - component: {fileID: 3396973906029369190}
   - component: {fileID: 2103070788013161180}
   - component: {fileID: 4396555883118305292}
+  - component: {fileID: 4698793888098088463}
   - component: {fileID: 6099572794170668033}
   - component: {fileID: 1993320363627731223}
-  - component: {fileID: 4698793888098088463}
   m_Layer: 8
   m_Name: Character
   m_TagString: Player
@@ -280,6 +280,51 @@ CapsuleCollider2D:
   m_Offset: {x: -0.037642002, y: -0.033153415}
   m_Size: {x: 0.607851, y: 0.976351}
   m_Direction: 0
+--- !u!61 &4698793888098088463
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5161413525223472787}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 0e2d8dcd0e5b24e2aab2b89032f5efeb, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.04951954, y: -0.4852984}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.032258, y: 1.032258}
+    newSize: {x: 1.032258, y: 1.032258}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.46772575, y: 0.10127735}
+  m_EdgeRadius: 0
 --- !u!114 &6099572794170668033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -334,51 +379,7 @@ MonoBehaviour:
   spikeAudio: {fileID: 8300000, guid: 01e57befd39724b14861b65e1d980464, type: 3}
   shootAudio: {fileID: 8300000, guid: ec506c74cd5704cccbad7f68aa19584b, type: 3}
   jumpAudio: {fileID: 8300000, guid: fbb858d5e23a3424aa6b888f2d7f529a, type: 3}
---- !u!61 &4698793888098088463
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5161413525223472787}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 0e2d8dcd0e5b24e2aab2b89032f5efeb, type: 2}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.04951954, y: -0.4852984}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.032258, y: 1.032258}
-    newSize: {x: 1.032258, y: 1.032258}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.46772575, y: 0.10127735}
-  m_EdgeRadius: 0
+  bounceAudio: {fileID: 8300000, guid: 0adeb238d2ad448ef9ffa61aa371f815, type: 3}
 --- !u!1 &5530190792110257504
 GameObject:
   m_ObjectHideFlags: 0

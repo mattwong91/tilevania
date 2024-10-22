@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
   [SerializeField] AudioClip spikeAudio;
   [SerializeField] AudioClip shootAudio;
   [SerializeField] AudioClip jumpAudio;
+  [SerializeField] AudioClip bounceAudio;
 
   Vector2 moveInput;
   Rigidbody2D rb2D;
@@ -81,6 +82,14 @@ public class PlayerMovement : MonoBehaviour
     if (!isAlive) { return; }
     PlaySFX(shootAudio);
     Instantiate(bullet, weapon.position, transform.rotation);
+  }
+
+  void OnCollisionEnter2D(Collision2D other)
+  {
+    if (other.gameObject.tag == "Bounce")
+    {
+      PlaySFX(bounceAudio);
+    }
   }
 
   void Run()
