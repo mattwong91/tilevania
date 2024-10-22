@@ -7,17 +7,23 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
+  [Header("Player Physics")]
   [SerializeField] float runSpeed = 5f;
   [SerializeField] float jumpSpeed = 5f;
   [SerializeField] float climbSpeed = 3f;
   [SerializeField] Vector2 deathKick = new Vector2(5f, 10f);
   [SerializeField] float horizontalKnockback = 20f;
   [SerializeField] float verticalKnockback = 20f;
+
+  [Header("Weapon Objects")]
   [SerializeField] GameObject bullet;
   [SerializeField] Transform weapon;
+
+  [Header("SFX files")]
   [SerializeField] AudioClip hitAudio;
   [SerializeField] AudioClip spikeAudio;
   [SerializeField] AudioClip shootAudio;
+  [SerializeField] AudioClip jumpAudio;
 
   Vector2 moveInput;
   Rigidbody2D rb2D;
@@ -66,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
     if (value.isPressed)
     {
       rb2D.velocity += new Vector2(0f, jumpSpeed);
+      PlaySFX(jumpAudio);
     }
   }
 

@@ -333,6 +333,7 @@ MonoBehaviour:
   hitAudio: {fileID: 8300000, guid: 9ad60fa2b0dc043338401ef0d3a25f88, type: 3}
   spikeAudio: {fileID: 8300000, guid: 01e57befd39724b14861b65e1d980464, type: 3}
   shootAudio: {fileID: 8300000, guid: ec506c74cd5704cccbad7f68aa19584b, type: 3}
+  jumpAudio: {fileID: 8300000, guid: fbb858d5e23a3424aa6b888f2d7f529a, type: 3}
 --- !u!61 &4698793888098088463
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -562,7 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155ebf8711129422c9ab524c9d5c147b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayer: 1
+  isBoss: 0
   maxHealth: 4
 --- !u!1 &7496384535230269092
 GameObject:
@@ -669,6 +670,7 @@ MonoBehaviour:
   target: {fileID: 8517031133671980372}
   offset: {x: 0, y: 0.75, z: 0}
   showHideDelay: 1
+  isBoss: 0
 --- !u!1 &7578672884157414507
 GameObject:
   m_ObjectHideFlags: 0
