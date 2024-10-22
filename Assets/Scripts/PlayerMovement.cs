@@ -174,6 +174,7 @@ public class PlayerMovement : MonoBehaviour
       playerAnimator.SetTrigger("Dying");
       ApplyKnockback(deathKick.x, deathKick.y);
       FindObjectOfType<GameSession>().ProcessPlayerDeath();
+      playerHealth.ModifyScore();
     }
   }
 

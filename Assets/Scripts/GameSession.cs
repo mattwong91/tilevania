@@ -78,6 +78,7 @@ public class GameSession : MonoBehaviour
   public void IncreaseScore(int scorePoints)
   {
     playerScore += scorePoints;
+    if (playerScore < 0) { playerScore = 0; }
     UpdateScore();
   }
 }

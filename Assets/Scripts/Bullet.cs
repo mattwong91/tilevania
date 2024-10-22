@@ -31,6 +31,7 @@ public class Bullet : MonoBehaviour
       enemyHealth.TakeDamage();
       if (enemyHealth.GetHealth() <= 0)
       {
+        enemyHealth.ModifyScore();
         Destroy(other.gameObject);
       }
     }

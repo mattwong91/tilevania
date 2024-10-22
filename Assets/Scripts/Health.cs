@@ -6,6 +6,8 @@ public class Health : MonoBehaviour
 {
   [SerializeField] bool isBoss;
   [SerializeField] int maxHealth = 4;
+  [Tooltip("Change in score upon defeat")]
+  [SerializeField] int scoreModifier = 100;
 
   int health;
   HealthBar healthBar;
@@ -39,6 +41,11 @@ public class Health : MonoBehaviour
       levelExit.GetComponent<SpriteRenderer>().enabled = true;
       levelExit.GetComponent<BoxCollider2D>().enabled = true;
     }
+  }
+
+  public void ModifyScore()
+  {
+    FindObjectOfType<GameSession>().IncreaseScore(scoreModifier);
   }
 
   public void ResetHealth()

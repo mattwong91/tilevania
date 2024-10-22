@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: maxHealth
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8512251832655757509, guid: 560db4781da04484f9879a7bc9d3a4db, type: 3}
+      propertyPath: scoreModifier
+      value: 250
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
