@@ -21,6 +21,7 @@ public class EnemyMovement : MonoBehaviour
   {
     if (isStopped) { return; }
     rb2D.velocity = new Vector2(moveSpeed, 0);
+    FlipSprite();
   }
 
   void OnTriggerExit2D(Collider2D other)
@@ -28,7 +29,6 @@ public class EnemyMovement : MonoBehaviour
     if (other.gameObject.tag != "Player" && other.gameObject.tag != "Bullet")
     {
       moveSpeed = -moveSpeed;
-      FlipEnemyFacing();
     }
   }
 
@@ -44,16 +44,21 @@ public class EnemyMovement : MonoBehaviour
     }
   }
 
+  void FlipSprite()
+  {
+    bool hasHorizontalSpeed = Mathf.Abs(rb2D.velocity.x) > Mathf.Epsilon;
+
+    if (hasHorizontalSpeed)
+    {
+      transform.localScale = new Vector2(Mathf.Sign(rb2D.velocity.x), 1f);
+    }
+  }
+
   IEnumerator PauseMovement(float delay)
   {
     isStopped = true;
     rb2D.velocity = new Vector2(0f, 0f);
     yield return new WaitForSeconds(delay);
     isStopped = false;
-  }
-
-  void FlipEnemyFacing()
-  {
-    transform.localScale = new Vector2(-Mathf.Sign(rb2D.velocity.x), 1f);
   }
 }
