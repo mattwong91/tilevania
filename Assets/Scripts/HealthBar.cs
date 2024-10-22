@@ -9,6 +9,7 @@ public class HealthBar : MonoBehaviour
   [SerializeField] Vector3 offset;
   [Tooltip("Time in seconds to wait before hiding the health bar")]
   [SerializeField] float showHideDelay = 1f;
+  [SerializeField] bool isBoss = false;
   Slider healthBar;
   Canvas canvas;
 
@@ -16,12 +17,19 @@ public class HealthBar : MonoBehaviour
   {
     healthBar = GetComponent<Slider>();
     canvas = GetComponentInParent<Canvas>();
-    canvas.enabled = false;
+    canvas.enabled = isBoss;
   }
 
   void Update()
   {
-    PositionHealthBar();
+    if (isBoss)
+    {
+      ProcessBossHealthBar();
+    }
+    else
+    {
+      PositionHealthBar();
+    }
   }
 
   void PositionHealthBar()
@@ -36,10 +44,21 @@ public class HealthBar : MonoBehaviour
       transform.position = target.position + offset;
     }
   }
+
+  void ProcessBossHealthBar()
+  {
+    if (target == null)
+    {
+      Destroy(gameObject);
+    }
+  }
+
   public void UpdateHealthBar(float currentHealth, float maxHealth)
   {
     healthBar.value = currentHealth / maxHealth;
+    if (isBoss) { return; }
     StartCoroutine(DisplayHealthBar());
+
   }
 
   IEnumerator DisplayHealthBar()
