@@ -35,6 +35,7 @@ public class Health : MonoBehaviour
     healthBar.UpdateHealthBar(health, maxHealth);
     if (isBoss && health <= 0)
     {
+      if (levelExit == null) { levelExit = FindObjectOfType<LevelExit>(); }
       levelExit.GetComponent<SpriteRenderer>().enabled = true;
       levelExit.GetComponent<BoxCollider2D>().enabled = true;
     }
