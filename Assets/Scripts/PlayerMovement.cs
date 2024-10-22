@@ -86,9 +86,13 @@ public class PlayerMovement : MonoBehaviour
 
   void OnCollisionEnter2D(Collision2D other)
   {
-    if (other.gameObject.tag == "Bounce")
+    Collider2D sourceCollider = other.GetContact(0).otherCollider;
+    if (sourceCollider == feetCollider)
     {
-      PlaySFX(bounceAudio);
+      if (other.gameObject.tag == "Bounce")
+      {
+        PlaySFX(bounceAudio);
+      }
     }
   }
 
