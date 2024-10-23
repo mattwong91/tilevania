@@ -11,6 +11,7 @@ public class GameSession : MonoBehaviour
   [SerializeField] TextMeshProUGUI scoreText;
   [SerializeField] float deathDelay = 1.5f;
   int playerScore = 0;
+  AudioPlayerBGM audioPlayerBGM;
 
 
   void Awake()
@@ -24,6 +25,7 @@ public class GameSession : MonoBehaviour
     {
       DontDestroyOnLoad(gameObject);
     }
+    audioPlayerBGM = FindObjectOfType<AudioPlayerBGM>();
   }
 
   void Start()
@@ -57,6 +59,7 @@ public class GameSession : MonoBehaviour
   void ResetGameSession()
   {
     FindObjectOfType<ScenePersist>().ResetScenePersist();
+    audioPlayerBGM.SetMainTheme();
     SceneManager.LoadScene(0);
     Destroy(gameObject);
   }
@@ -64,6 +67,7 @@ public class GameSession : MonoBehaviour
   public void EndGameSession()
   {
     FindObjectOfType<ScenePersist>().ResetScenePersist();
+    audioPlayerBGM.SetMainTheme();
     Destroy(gameObject);
   }
 

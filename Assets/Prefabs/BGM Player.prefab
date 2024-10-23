@@ -141,3 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2becc981019e4cf192b1f7f77675d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 6067060849975966855}
+  mainTheme: {fileID: 8300000, guid: 4fe9a29a536834e21b166c037a805986, type: 3}
+  bossTheme: {fileID: 8300000, guid: 1e6ae81cf3c6a4e04a460e38901039a3, type: 3}

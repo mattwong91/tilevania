@@ -195,6 +195,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ab7b9600b74e445da68e9ca76a71e67, type: 3}
+--- !u!82 &177584338 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6067060849975966855, guid: 41ef4ef799a8f446f8219672229ddc4d, type: 3}
+  m_PrefabInstance: {fileID: 6168982464005159438}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &258227806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5926,6 +5931,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGM Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3648139993331423127, guid: 41ef4ef799a8f446f8219672229ddc4d, type: 3}
+      propertyPath: bossTheme
+      value: 
+      objectReference: {fileID: 8300000, guid: 1e6ae81cf3c6a4e04a460e38901039a3, type: 3}
+    - target: {fileID: 3648139993331423127, guid: 41ef4ef799a8f446f8219672229ddc4d, type: 3}
+      propertyPath: mainTheme
+      value: 
+      objectReference: {fileID: 8300000, guid: 4fe9a29a536834e21b166c037a805986, type: 3}
+    - target: {fileID: 3648139993331423127, guid: 41ef4ef799a8f446f8219672229ddc4d, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 177584338}
     - target: {fileID: 8822598522003856278, guid: 41ef4ef799a8f446f8219672229ddc4d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

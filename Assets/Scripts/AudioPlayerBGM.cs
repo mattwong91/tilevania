@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class AudioPlayerBGM : MonoBehaviour
 {
+  [SerializeField] AudioSource audioSource;
+  [SerializeField] AudioClip mainTheme;
+  [SerializeField] AudioClip bossTheme;
+
   void Awake()
   {
     int numBGMPlayers = FindObjectsOfType<AudioPlayerBGM>().Length;
@@ -15,5 +19,19 @@ public class AudioPlayerBGM : MonoBehaviour
     {
       DontDestroyOnLoad(gameObject);
     }
+  }
+
+  public void SetBossTheme()
+  {
+    audioSource.Stop();
+    audioSource.clip = bossTheme;
+    audioSource.Play();
+  }
+
+  public void SetMainTheme()
+  {
+    audioSource.Stop();
+    audioSource.clip = mainTheme;
+    audioSource.Play();
   }
 }

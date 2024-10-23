@@ -7,14 +7,17 @@ using UnityEngine.SceneManagement;
 public class LevelExit : MonoBehaviour
 {
   [SerializeField] float loadDelay = 1f;
+  [SerializeField] AudioClip exitAudio;
+
   GameSession currentGameSession;
   PlayerInput playerInput;
-  [SerializeField] AudioClip exitAudio;
+  AudioPlayerBGM audioPlayerBGM;
 
   void Start()
   {
     currentGameSession = FindObjectOfType<GameSession>();
     playerInput = FindObjectOfType<PlayerInput>();
+    audioPlayerBGM = FindObjectOfType<AudioPlayerBGM>();
   }
 
   void OnTriggerEnter2D(Collider2D other)
@@ -40,6 +43,10 @@ public class LevelExit : MonoBehaviour
     }
 
     FindObjectOfType<ScenePersist>().ResetScenePersist();
+    if (nextLevelIndex == SceneManager.sceneCountInBuildSettings - 1)
+    {
+      audioPlayerBGM.SetBossTheme();
+    }
     if (nextLevelIndex == 0)
     {
       currentGameSession.EndGameSession();
