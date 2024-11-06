@@ -33,7 +33,10 @@ public class PlayerMovement : MonoBehaviour
   BoxCollider2D feetCollider;
   Health playerHealth;
   float gravityScaleAtStart;
+
   bool isAlive = true;
+  bool isShooting = false;
+  bool isRunning = false;
 
   void Start()
   {
@@ -62,13 +65,13 @@ public class PlayerMovement : MonoBehaviour
 
   void OnMove(InputValue value)
   {
-    if (!isAlive) { return; }
+    if (!isAlive || isShooting) { return; }
     moveInput = value.Get<Vector2>();
   }
 
   void OnJump(InputValue value)
   {
-    if (!isAlive) { return; }
+    if (!isAlive || isShooting) { return; }
     if (!feetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
     if (value.isPressed)
     {
@@ -79,7 +82,18 @@ public class PlayerMovement : MonoBehaviour
 
   void OnFire(InputValue value)
   {
-    if (!isAlive) { return; }
+    if (!isAlive || isShooting || isRunning) { return; }
+    isShooting = true;
+    playerAnimator.SetTrigger("Shoot");
+  }
+
+  public void DoneShooting()
+  {
+    isShooting = false;
+  }
+
+  public void ShootArrow()
+  {
     PlaySFX(shootAudio);
     Instantiate(bullet, weapon.position, transform.rotation);
   }
@@ -101,16 +115,16 @@ public class PlayerMovement : MonoBehaviour
     Vector2 playerVelocity = new Vector2(moveInput.x * runSpeed, rb2D.velocity.y);
     rb2D.velocity = playerVelocity;
 
-    bool hasHorizontalSpeed = Mathf.Abs(rb2D.velocity.x) > Mathf.Epsilon;
-    playerAnimator.SetBool("isRunning", hasHorizontalSpeed);
+    isRunning = Mathf.Abs(rb2D.velocity.x) > Mathf.Epsilon;
+    playerAnimator.SetBool("isRunning", isRunning);
 
   }
 
   void FlipSprite()
   {
-    bool hasHorizontalSpeed = Mathf.Abs(rb2D.velocity.x) > Mathf.Epsilon;
+    isRunning = Mathf.Abs(rb2D.velocity.x) > Mathf.Epsilon;
 
-    if (hasHorizontalSpeed)
+    if (isRunning)
     {
       transform.localScale = new Vector2(Mathf.Sign(rb2D.velocity.x), 1f);
     }
