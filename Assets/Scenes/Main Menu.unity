@@ -4096,10 +4096,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.4724479, y: 3.492835}
-      - {x: -20.495167, y: 3.472384}
-      - {x: -20.501661, y: -7.435233}
-      - {x: -1.3854599, y: -7.4238234}
+    - - {x: 9.852707, y: 5.890503}
+      - {x: -9.935226, y: 5.9210663}
+      - {x: -9.992735, y: -6.057849}
+      - {x: 9.990709, y: -5.9444113}
   m_UseDelaunayMesh: 0
 --- !u!1 &1845292811
 GameObject:
@@ -4162,7 +4162,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.05
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
