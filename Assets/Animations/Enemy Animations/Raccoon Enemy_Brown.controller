@@ -28,7 +28,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Raccoon Enemy
+  m_Name: Raccoon Enemy_Brown
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
@@ -51,7 +51,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Goo Animation
+  m_Name: Enemy Run
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -64,7 +64,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ce4f27e49764f4699b868ac9187bfdcd, type: 2}
+  m_Motion: {fileID: 7400000, guid: f2cdaa905ab754d18a2f9bb8c08ed878, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
