@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBoss: 0
-  maxHealth: 5
-  scoreModifier: 200
+  maxHealth: 10
+  scoreModifier: 500
 --- !u!1 &551783928934196333
 GameObject:
   m_ObjectHideFlags: 0
