@@ -7,8 +7,8 @@ public class BGScroll : MonoBehaviour
 {
   [SerializeField] Vector2 moveSpeed;
   [SerializeField] bool scrollLeft;
-  Vector3 offset;
 
+  Vector3 offset;
   float singleTextureWidth;
 
   void Start()
