@@ -26,6 +26,7 @@ public class Health : MonoBehaviour
   void SetupBossLevel()
   {
     levelExit = FindObjectOfType<LevelExit>();
+    if (levelExit == null) { return; }
     levelExit.GetComponent<SpriteRenderer>().enabled = false;
     levelExit.GetComponent<BoxCollider2D>().enabled = false;
   }

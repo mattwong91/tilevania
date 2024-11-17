@@ -59,6 +59,10 @@ public class GameSession : MonoBehaviour
   void ResetGameSession()
   {
     FindObjectOfType<ScenePersist>().ResetScenePersist();
+    if (audioPlayerBGM == null)
+    {
+      audioPlayerBGM = FindObjectOfType<AudioPlayerBGM>();
+    }
     audioPlayerBGM.SetMainTheme();
     SceneManager.LoadScene(0);
     Destroy(gameObject);
@@ -67,6 +71,10 @@ public class GameSession : MonoBehaviour
   public void EndGameSession()
   {
     FindObjectOfType<ScenePersist>().ResetScenePersist();
+    if (audioPlayerBGM == null)
+    {
+      audioPlayerBGM = FindObjectOfType<AudioPlayerBGM>();
+    }
     audioPlayerBGM.SetMainTheme();
     Destroy(gameObject);
   }

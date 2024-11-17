@@ -45,6 +45,10 @@ public class LevelExit : MonoBehaviour
     FindObjectOfType<ScenePersist>().ResetScenePersist();
     if (nextLevelIndex == SceneManager.sceneCountInBuildSettings - 1)
     {
+      if (audioPlayerBGM == null)
+      {
+        audioPlayerBGM = FindObjectOfType<AudioPlayerBGM>();
+      }
       audioPlayerBGM.SetBossTheme();
     }
     if (nextLevelIndex == 0)
